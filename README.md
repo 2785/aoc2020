@@ -1,5 +1,7 @@
 # aoc2020
 
+This repo contains my solution for aoc 2020, for details about aoc itself see [here](https://adventofcode.com/)
+
 To run the code for a specific day, for example day 1, run `go run main.go d1`, commands take in custom input file locations, e.g. `go run main.go --input path/to/input/file`
 
 ```
