@@ -12,6 +12,7 @@ Usage:
 
 Available Commands:
   d1          Run solution for day 1
+  d2          Run solution for day 2
   help        Help about any command
 
 Flags:
