@@ -3,6 +3,7 @@ package cmd
 import (
 	"fmt"
 	"io/ioutil"
+	"path/filepath"
 
 	"github.com/2785/aoc2020/pkg/d1"
 	"github.com/2785/aoc2020/pkg/d2"
@@ -18,7 +19,7 @@ var d1Cmd = &cobra.Command{
 	RunE: func(cmd *cobra.Command, args []string) error {
 		fmt.Printf("running day 1 puzzle with input file %s\n", inputFile)
 
-		f, err := ioutil.ReadFile(inputFile)
+		f, err := ioutil.ReadFile(filepath.Clean(inputFile))
 		if err != nil {
 			return fmt.Errorf("error reading file: %w", err)
 		}
@@ -46,7 +47,7 @@ var d2Cmd = &cobra.Command{
 	RunE: func(cmd *cobra.Command, args []string) error {
 		fmt.Printf("running day 2 puzzle with input file %s\n", inputFile)
 
-		f, err := ioutil.ReadFile(inputFile)
+		f, err := ioutil.ReadFile(filepath.Clean(inputFile))
 		if err != nil {
 			return fmt.Errorf("error reading file: %w", err)
 		}
@@ -74,7 +75,7 @@ var d3Cmd = &cobra.Command{
 	RunE: func(cmd *cobra.Command, args []string) error {
 		fmt.Printf("running day 3 puzzle with input file %s\n", inputFile)
 
-		f, err := ioutil.ReadFile(inputFile)
+		f, err := ioutil.ReadFile(filepath.Clean(inputFile))
 		if err != nil {
 			return fmt.Errorf("error reading file: %w", err)
 		}
