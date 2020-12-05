@@ -83,6 +83,7 @@ func SolvePart1(seats []*Seat) int {
 	return ids[len(ids)-1]
 }
 
+// SolvePart2 ..
 func SolvePart2(seats []*Seat) int {
 	ids := func() []int {
 		out := make([]int, len(seats))
