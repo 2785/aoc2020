@@ -19,6 +19,7 @@ Available Commands:
   d6          Run solution for day 6
   d7          Run solution for day 7
   d8          Run solution for day 8
+  d9          Run solution for day 9
   help        Help about any command
 
 Flags:
