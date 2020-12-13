@@ -9,6 +9,7 @@ import (
 	"github.com/2785/aoc2020/pkg/d10"
 	"github.com/2785/aoc2020/pkg/d11"
 	"github.com/2785/aoc2020/pkg/d12"
+	"github.com/2785/aoc2020/pkg/d13"
 	"github.com/2785/aoc2020/pkg/d2"
 	"github.com/2785/aoc2020/pkg/d3"
 	"github.com/2785/aoc2020/pkg/d4"
@@ -367,6 +368,38 @@ var d12Cmd = &cobra.Command{
 	},
 }
 
+var d13Cmd = &cobra.Command{
+	Use:   "d13",
+	Short: "Run solution for day 13",
+	RunE: func(cmd *cobra.Command, args []string) error {
+		fmt.Printf("running day 13 puzzle with input file %s\n", inputFile)
+
+		f, err := ioutil.ReadFile(filepath.Clean(inputFile))
+		if err != nil {
+			return fmt.Errorf("error reading file: %w", err)
+		}
+
+		schedule, arrival, err := d13.ParseInput(f)
+
+		if err != nil {
+			return fmt.Errorf("cannot parse file %s: %w", inputFile, err)
+		}
+
+		part1 := d13.SolvePart1(schedule, arrival)
+
+		fmt.Printf("Part 1 solution: %v\n", part1)
+
+		part2, err := d13.SolvePart2(schedule)
+
+		if err != nil {
+			return fmt.Errorf("cannot solve part 2: %w", err)
+		}
+
+		fmt.Printf("Part 2 solution: %v\n", part2)
+		return nil
+	},
+}
+
 func init() {
 	d1Cmd.Flags().StringVarP(&inputFile, "input", "i", "inputs/d1", "input file path")
 	rootCmd.AddCommand(d1Cmd)
@@ -403,5 +436,8 @@ func init() {
 
 	d12Cmd.Flags().StringVarP(&inputFile, "input", "i", "inputs/d12", "input file path")
 	rootCmd.AddCommand(d12Cmd)
+
+	d13Cmd.Flags().StringVarP(&inputFile, "input", "i", "inputs/d13", "input file path")
+	rootCmd.AddCommand(d13Cmd)
 
 }

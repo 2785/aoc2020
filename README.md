@@ -15,6 +15,7 @@ Available Commands:
   d10         Run solution for day 10
   d11         Run solution for day 11
   d12         Run solution for day 12
+  d13         Run solution for day 13
   d2          Run solution for day 2
   d3          Run solution for day 3
   d4          Run solution for day 4
