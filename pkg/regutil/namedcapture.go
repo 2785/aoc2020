@@ -1,6 +1,7 @@
 package regutil
 
 import (
+	"errors"
 	"fmt"
 	"regexp"
 )
@@ -8,6 +9,9 @@ import (
 // MustCaptureNamedGroup ..
 func MustCaptureNamedGroup(re *regexp.Regexp, names []string, s string) (map[string]string, error) {
 	match := re.FindStringSubmatch(s)
+	if match == nil {
+		return nil, errors.New("no match")
+	}
 	result := make(map[string]string)
 	for ind, name := range re.SubexpNames() {
 		if ind != 0 && name != "" {
