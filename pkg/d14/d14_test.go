@@ -34,3 +34,18 @@ func TestSolvePart1(t *testing.T) {
 	assert.Equal(t, 165, p1)
 
 }
+
+var testInput2 string = `mask = 000000000000000000000000000000X1001X
+mem[42] = 100
+mask = 00000000000000000000000000000000X0XX
+mem[26] = 1`
+
+func TestSolvePart2(t *testing.T) {
+	in, order, locOrder, err := ORDEREVERYTHING([]byte(testInput2))
+	require.NoError(t, err)
+
+	p1, err := SolvePart2(in, order, locOrder)
+	assert.NoError(t, err)
+	assert.Equal(t, 208, p1)
+
+}

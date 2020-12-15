@@ -426,13 +426,19 @@ var d14Cmd = &cobra.Command{
 
 		fmt.Printf("Part 1 solution: %v\n", part1)
 
-		// part2, err := d14.SolvePart2(schedule)
+		parsed, order, locOrder, err := d14.ORDEREVERYTHING(f)
 
-		// if err != nil {
-		// 	return fmt.Errorf("cannot solve part 2: %w", err)
-		// }
+		if err != nil {
+			return fmt.Errorf("cannot parse file %s: %w", inputFile, err)
+		}
 
-		// fmt.Printf("Part 2 solution: %v\n", part2)
+		part2, err := d14.SolvePart2(parsed, order, locOrder)
+
+		if err != nil {
+			return fmt.Errorf("cannot solve part 2: %w", err)
+		}
+
+		fmt.Printf("Part 2 solution: %v\n", part2)
 		return nil
 	},
 }
