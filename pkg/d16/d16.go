@@ -144,6 +144,17 @@ func SolvePart1(nearby [][]int, rules map[string]func(int) bool) int {
 
 // SolvePart2 ..
 func SolvePart2(yours []int, nearby [][]int, rules map[string]func(int) bool) (int, error) {
+	// Game plan:
+	// 1. Go through the tickets, get the possible field names for each index in each ticket -> [][][]string
+	// 2. Take an intersect across each index -> map[int][]string
+	// 3. Make a map[string]int as a record keeper for which field has been figured out
+	// 4. Go through the intersect map, if the string array only has one entry we know it's set, add that to
+	//    the record keeper and remove the known index from future consideration
+	// 5. If the string array has more than one entry, check through the record to remove known fields from
+	//    the string array
+	// 6. Repeat 4 ~ 5 until there's nothing left in the intersect
+	// 7. Then do the stupid AOC multiplication thing
+
 	round := [][][]string{}
 	mu := &sync.Mutex{}
 	wg := &sync.WaitGroup{}
