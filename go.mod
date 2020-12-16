@@ -3,6 +3,7 @@ module github.com/2785/aoc2020
 go 1.15
 
 require (
+	github.com/adam-hanna/arrayOperations v0.2.6
 	github.com/gammazero/workerpool v1.1.1
 	github.com/mitchellh/go-homedir v1.1.0
 	github.com/spf13/cobra v1.1.1
