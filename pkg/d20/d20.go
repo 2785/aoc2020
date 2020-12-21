@@ -263,7 +263,9 @@ func invertString(s string) string {
 
 // ParseInput ..
 func ParseInput(f []byte) (map[int]*Tile, error) {
-	split := strings.Split(string(f), "\n\n")
+	lf := strings.ReplaceAll(string(f), "\r", "")
+	split := strings.Split(lf, "\n\n")
+
 	out := make(map[int]*Tile, len(split))
 	mu := &sync.Mutex{}
 	eg := &errgroup.Group{}
