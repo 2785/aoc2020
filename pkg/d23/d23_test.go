@@ -9,7 +9,7 @@ import (
 )
 
 func TestPlayRound(t *testing.T) {
-	m := make(map[int]*ring.Ring)
+	m := make([]*ring.Ring, 10)
 	initialCups := []int{3, 8, 9, 1, 2, 5, 4, 6, 7}
 	game := ring.New(len(initialCups))
 	for i := 0; i < game.Len(); i++ {

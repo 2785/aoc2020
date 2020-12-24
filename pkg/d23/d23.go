@@ -21,7 +21,7 @@ func ParseInput(f []byte) ([]int, error) {
 	return ints, nil
 }
 
-func playOneRound(curr *ring.Ring, max int, ringmap map[int]*ring.Ring) *ring.Ring {
+func playOneRound(curr *ring.Ring, max int, ringmap []*ring.Ring) *ring.Ring {
 	currValue := curr.Value.(int)
 	take1 := curr.Next().Value.(int)
 	take2 := curr.Move(2).Value.(int)
@@ -47,7 +47,7 @@ func playOneRound(curr *ring.Ring, max int, ringmap map[int]*ring.Ring) *ring.Ri
 // SolvePart1 ..
 func SolvePart1(input []int) string {
 
-	m := make(map[int]*ring.Ring)
+	m := make([]*ring.Ring, len(input)+1)
 	game := ring.New(len(input))
 	for _, v := range input {
 		game.Value = v
@@ -87,7 +87,7 @@ func SolvePart2(input []int) int {
 	for i := len(input); i < 1e6; i++ {
 		loc[i] = i + 1
 	}
-	m := make(map[int]*ring.Ring)
+	m := make([]*ring.Ring, 1e6+1)
 
 	game := ring.New(len(loc))
 	for _, v := range loc {
